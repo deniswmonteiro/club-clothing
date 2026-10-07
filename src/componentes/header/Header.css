@@ -1,0 +1,56 @@
+.header {
+  width: 100%;
+  background-color: #212529;
+  padding: 24px 32px;
+}
+
+.header-logo {
+  font-family: "Love Ya Like A Sister", cursive;
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #f8f9fe;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-menu {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.header-menu__item {
+  display: flex;
+  align-items: center;
+}
+
+.header-menu__item a {
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #f8f9fe;
+  text-transform: uppercase;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header-menu__item a span {
+  font-size: 10px;
+  color: #212529;
+  font-weight: 600;
+  padding: 6px;
+  background-color: #f8f9fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
