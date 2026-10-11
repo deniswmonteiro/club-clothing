@@ -1,10 +1,13 @@
 import React from "react";
-import "./Categories.css";
 import type Category from "../../types/category.types";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../../assets/config/firebase.config";
 import { categoryConverter } from "../../converters/firestore.converters";
 import CategoryItem from "../category-item/CategoryItem";
+import {
+  StyledCategoriesContainer,
+  StyledCategoriesContent,
+} from "./Categories.styles";
 
 const Categories = () => {
   const [categories, setCategories] = React.useState<Category[]>([]);
@@ -31,15 +34,15 @@ const Categories = () => {
   }, []);
 
   return (
-    <section className="categories-container">
+    <StyledCategoriesContainer>
       <div>
-        <ul className="categories-content">
+        <StyledCategoriesContent>
           {categories.map((category) => (
             <CategoryItem category={category} key={category.id} />
           ))}
-        </ul>
+        </StyledCategoriesContent>
       </div>
-    </section>
+    </StyledCategoriesContainer>
   );
 };
 
