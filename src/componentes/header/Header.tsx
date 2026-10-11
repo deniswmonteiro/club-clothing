@@ -1,32 +1,42 @@
-import "./Header.css";
 import { BsCart3 } from "react-icons/bs";
+import {
+  StyledHeader,
+  StyledHeaderContainer,
+  StyledHeaderItem,
+  StyledHeaderLogo,
+  StyledHeaderMenu,
+  StyledHeaderMenuItemBadge,
+  StyledHeaderMenuItemLink,
+} from "./Header.styles";
 
 const Header = () => {
   return (
-    <header className="header">
-      <div className="header-container">
-        <a href="/" className="header-logo">
-          Club Clothing
-        </a>
-        <ul className="header-menu">
-          <li className="header-menu__item">
-            <a href="#">Explorar</a>
-          </li>
-          <li className="header-menu__item">
-            <a href="#">Login</a>
-          </li>
-          <li className="header-menu__item">
-            <a href="#">Criar Conta</a>
-          </li>
-          <li className="header-menu__item">
-            <a href="#">
+    <StyledHeader>
+      <StyledHeaderContainer className="header-container">
+        <StyledHeaderLogo href="/">Club Clothing</StyledHeaderLogo>
+        <StyledHeaderMenu>
+          <StyledHeaderItem>
+            <StyledHeaderMenuItemLink href="#">
+              Explorar
+            </StyledHeaderMenuItemLink>
+          </StyledHeaderItem>
+          <StyledHeaderItem>
+            <StyledHeaderMenuItemLink href="#">Login</StyledHeaderMenuItemLink>
+          </StyledHeaderItem>
+          <StyledHeaderItem>
+            <StyledHeaderMenuItemLink href="#">
+              Criar Conta
+            </StyledHeaderMenuItemLink>
+          </StyledHeaderItem>
+          <StyledHeaderItem>
+            <StyledHeaderMenuItemLink href="#">
               <BsCart3 size={16} />
-              <span>5</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </header>
+              <StyledHeaderMenuItemBadge>5</StyledHeaderMenuItemBadge>
+            </StyledHeaderMenuItemLink>
+          </StyledHeaderItem>
+        </StyledHeaderMenu>
+      </StyledHeaderContainer>
+    </StyledHeader>
   );
 };
 

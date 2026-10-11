@@ -4,18 +4,18 @@
   padding: 24px 32px;
 }
 
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .header-logo {
   font-family: "Love Ya Like A Sister", cursive;
   font-size: 32px;
   line-height: 1.2;
   font-weight: 400;
   color: #f8f9fe;
-}
-
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .header-menu {
