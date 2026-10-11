@@ -6,7 +6,7 @@
 }
 
 .categories-content {
-  width: 1920px;
+  width: 100vw;
   height: 100%;
   display: grid;
   grid-template-areas:
@@ -17,22 +17,22 @@
   padding: 30px;
 }
 
-.categories-container div:nth-child(1) {
+.categories-content li:nth-child(1) {
   grid-area: a;
 }
 
-.categories-container div:nth-child(2) {
+.categories-content li:nth-child(2) {
   grid-area: b;
 }
 
-.categories-container div:nth-child(3) {
+.categories-content li:nth-child(3) {
   grid-area: c;
 }
 
-.categories-container div:nth-child(4) {
+.categories-content li:nth-child(4) {
   grid-area: d;
 }
 
-.categories-container div:nth-child(5) {
+.categories-content li:nth-child(5) {
   grid-area: e;
 }

@@ -4,6 +4,7 @@ import type Category from "../../types/category.types";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../../assets/config/firebase.config";
 import { categoryConverter } from "../../converters/firestore.converters";
+import CategoryItem from "../category-item/CategoryItem";
 
 const Categories = () => {
   const [categories, setCategories] = React.useState<Category[]>([]);
@@ -29,11 +30,15 @@ const Categories = () => {
     fetchCategories();
   }, []);
 
-  console.log(categories);
-
   return (
     <section className="categories-container">
-      <div className="categories-content"></div>
+      <div>
+        <ul className="categories-content">
+          {categories.map((category) => (
+            <CategoryItem category={category} key={category.id} />
+          ))}
+        </ul>
+      </div>
     </section>
   );
 };
