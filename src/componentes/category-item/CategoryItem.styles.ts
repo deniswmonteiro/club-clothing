@@ -1,13 +1,18 @@
 import styled from "styled-components";
 import Colors from "../../theme/theme.colors";
 
-export const StyledCategoryItemContainer = styled.li`
+interface CategoryItemContainerProps {
+  backgroundImage: string;
+}
+
+export const StyledCategoryItemContainer = styled.li<CategoryItemContainerProps>`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
   grid-gap: 15px;
+  background-image: ${(props) => `url("${props.backgroundImage}")`};
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
