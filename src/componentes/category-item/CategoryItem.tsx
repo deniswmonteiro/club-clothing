@@ -11,7 +11,7 @@ interface CategoryItemProps {
 
 const CategoryItem: FunctionComponent<CategoryItemProps> = ({ category }) => {
   return (
-    <StyledCategoryItemContainer backgroundImage={category.imageUrl}>
+    <StyledCategoryItemContainer $backgroundImage={category.imageUrl}>
       <StyledCategoryItemName>
         <p>{category.displayName}</p>
       </StyledCategoryItemName>

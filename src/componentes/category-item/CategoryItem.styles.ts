@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Colors from "../../theme/theme.colors";
 
 interface CategoryItemContainerProps {
-  backgroundImage: string;
+  $backgroundImage: string;
 }
 
 export const StyledCategoryItemContainer = styled.li<CategoryItemContainerProps>`
@@ -12,7 +12,7 @@ export const StyledCategoryItemContainer = styled.li<CategoryItemContainerProps>
   width: 100%;
   height: 100%;
   grid-gap: 15px;
-  background-image: ${(props) => `url("${props.backgroundImage}")`};
+  background-image: ${(props) => `url("${props.$backgroundImage}")`};
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
