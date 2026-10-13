@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import Colors from "../../theme/theme.colors";
 
-interface CategoryItemContainerProps {
+interface ICategoryItemContainerProps {
   $backgroundImage: string;
 }
 
-export const StyledCategoryItemContainer = styled.li<CategoryItemContainerProps>`
+export const StyledCategoryItemContainer = styled.li<ICategoryItemContainerProps>`
   display: flex;
   align-items: center;
   justify-content: center;

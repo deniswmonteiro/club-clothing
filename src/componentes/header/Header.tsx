@@ -12,8 +12,10 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <StyledHeader>
-      <StyledHeaderContainer className="header-container">
-        <StyledHeaderLogo href="/">Club Clothing</StyledHeaderLogo>
+      <StyledHeaderContainer>
+        <StyledHeaderLogo>
+          <Link to="/">Club Clothing</Link>
+        </StyledHeaderLogo>
         <StyledHeaderMenu>
           <StyledHeaderItem>
             <Link to="#">Explorar</Link>

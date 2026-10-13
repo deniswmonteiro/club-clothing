@@ -1,4 +1,4 @@
-export default interface Category {
+export default interface ICategory {
   id: string;
   name: string;
   displayName: string;

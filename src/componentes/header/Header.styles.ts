@@ -13,12 +13,14 @@ export const StyledHeaderContainer = styled.div`
   justify-content: space-between;
 `;
 
-export const StyledHeaderLogo = styled.a`
-  font-family: "Love Ya Like A Sister", cursive;
-  font-size: 32px;
-  line-height: 1.2;
-  font-weight: 400;
-  color: ${Colors.text.light};
+export const StyledHeaderLogo = styled.div`
+  & > a {
+    font-family: "Love Ya Like A Sister", cursive;
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 400;
+    color: ${Colors.text.light};
+  }
 `;
 
 export const StyledHeaderMenu = styled.ul`

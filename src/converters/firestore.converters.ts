@@ -3,13 +3,13 @@ import type {
   QueryDocumentSnapshot,
   SnapshotOptions,
 } from "firebase/firestore";
-import type Category from "../types/category.types";
+import type ICategory from "../types/category.types";
 
 export const categoryConverter = {
   fromFirestore(
     snapshot: QueryDocumentSnapshot,
     options: SnapshotOptions
-  ): Category {
+  ): ICategory {
     const data = snapshot.data(options);
 
     return {
@@ -20,7 +20,7 @@ export const categoryConverter = {
     };
   },
 
-  toFirestore(category: Category): DocumentData {
+  toFirestore(category: ICategory): DocumentData {
     return { ...category };
   },
 };

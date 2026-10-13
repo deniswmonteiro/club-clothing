@@ -1,5 +1,5 @@
 import React from "react";
-import type Category from "../../types/category.types";
+import type ICategory from "../../types/category.types";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../../assets/config/firebase.config";
 import { categoryConverter } from "../../converters/firestore.converters";
@@ -10,12 +10,12 @@ import {
 } from "./Categories.styles";
 
 const Categories = () => {
-  const [categories, setCategories] = React.useState<Category[]>([]);
+  const [categories, setCategories] = React.useState<ICategory[]>([]);
 
   React.useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const categoriesFromFirestore: Category[] = [];
+        const categoriesFromFirestore: ICategory[] = [];
         const querySnapshot = await getDocs(
           collection(db, "categories").withConverter(categoryConverter)
         );
