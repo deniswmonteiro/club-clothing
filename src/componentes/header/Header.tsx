@@ -6,8 +6,8 @@ import {
   StyledHeaderLogo,
   StyledHeaderMenu,
   StyledHeaderMenuItemBadge,
-  StyledHeaderMenuItemLink,
 } from "./Header.styles";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -16,23 +16,19 @@ const Header = () => {
         <StyledHeaderLogo href="/">Club Clothing</StyledHeaderLogo>
         <StyledHeaderMenu>
           <StyledHeaderItem>
-            <StyledHeaderMenuItemLink href="#">
-              Explorar
-            </StyledHeaderMenuItemLink>
+            <Link to="#">Explorar</Link>
           </StyledHeaderItem>
           <StyledHeaderItem>
-            <StyledHeaderMenuItemLink href="#">Login</StyledHeaderMenuItemLink>
+            <Link to="/login">Login</Link>
           </StyledHeaderItem>
           <StyledHeaderItem>
-            <StyledHeaderMenuItemLink href="#">
-              Criar Conta
-            </StyledHeaderMenuItemLink>
+            <Link to="#">Criar Conta</Link>
           </StyledHeaderItem>
           <StyledHeaderItem>
-            <StyledHeaderMenuItemLink href="#">
+            <Link to="#" data-cart>
               <BsCart3 size={16} />
               <StyledHeaderMenuItemBadge>5</StyledHeaderMenuItemBadge>
-            </StyledHeaderMenuItemLink>
+            </Link>
           </StyledHeaderItem>
         </StyledHeaderMenu>
       </StyledHeaderContainer>

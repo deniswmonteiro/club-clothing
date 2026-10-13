@@ -30,18 +30,38 @@ export const StyledHeaderMenu = styled.ul`
 export const StyledHeaderItem = styled.li`
   display: flex;
   align-items: center;
-`;
 
-export const StyledHeaderMenuItemLink = styled.a`
-  font-size: 14px;
-  line-height: 1.2;
-  font-weight: 400;
-  color: ${Colors.text.light};
-  text-transform: uppercase;
-  padding: 0 6px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  & > a {
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 400;
+    color: ${Colors.text.light};
+    text-transform: uppercase;
+    padding: 0 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    transition: 0.3s ease-in-out;
+
+    &:not([data-cart]) {
+      &:hover::after {
+        width: calc(100% - 12px);
+        transition: 0.3s ease-in-out;
+      }
+
+      &::after {
+        content: "";
+        width: 0%;
+        height: 1px;
+        background-color: ${Colors.background.light};
+        position: absolute;
+        bottom: -3px;
+        left: 6px;
+        transition: 0.3s ease-in-out;
+      }
+    }
+  }
 `;
 
 export const StyledHeaderMenuItemBadge = styled.span`
