@@ -1,28 +1,28 @@
 import styled from "styled-components";
 import Colors from "../../theme/theme.colors";
 
-export const LoginContainer = styled.section`
+export const StyledLoginContainer = styled.section`
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-export const LoginHeadline = styled.p`
+export const StyledLoginHeadline = styled.p`
   font-weight: 600;
   font-size: 1.3rem;
   margin-bottom: 20px;
   color: ${Colors.text.dark};
 `;
 
-export const LoginContent = styled.div`
+export const StyledLoginContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 450px;
 `;
 
-export const LoginSubtitle = styled.p`
+export const StyledLoginSubtitle = styled.p`
   color: ${Colors.text.dark};
   padding-bottom: 20px;
   border-bottom: 1px solid ${Colors.input.placeholder};
@@ -33,12 +33,6 @@ export const LoginSubtitle = styled.p`
   margin-bottom: 20px;
 `;
 
-export const LoginInputContainer = styled.div`
+export const StyleLoginForm = styled.form`
   width: 100%;
-  margin-bottom: 20px;
-
-  p:nth-child(1) {
-    font-weight: 600;
-    margin-bottom: 5px;
-  }
 `;

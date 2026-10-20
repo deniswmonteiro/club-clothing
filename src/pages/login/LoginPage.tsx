@@ -2,30 +2,43 @@ import { BsGoogle } from "react-icons/bs";
 import Button from "../../componentes/button/Button";
 import Header from "../../componentes/header/Header";
 import {
-  LoginContainer,
-  LoginContent,
-  LoginHeadline,
-  LoginInputContainer,
-  LoginSubtitle,
+  StyledLoginContainer,
+  StyledLoginContent,
+  StyledLoginHeadline,
+  StyledLoginSubtitle,
+  StyleLoginForm,
 } from "./LoginPage.styles";
 import { FiLogIn } from "react-icons/fi";
+import Input from "../../componentes/input/Input";
 
 const LoginPage = () => {
   return (
     <>
       <Header />
-      <LoginContainer>
-        <LoginContent>
-          <LoginHeadline>Entre com o Google</LoginHeadline>
+      <StyledLoginContainer>
+        <StyledLoginContent>
+          <StyledLoginHeadline>Entre com o Google</StyledLoginHeadline>
           <Button startIcon={<BsGoogle size={18} />}>Login com o Google</Button>
-          <LoginSubtitle>Ou entre com o seu e-mail e senha</LoginSubtitle>
-          <form action="#">
-            <LoginInputContainer></LoginInputContainer>
-            <LoginInputContainer></LoginInputContainer>
-            <Button startIcon={<FiLogIn size={16} />}>Entrar</Button>
-          </form>
-        </LoginContent>
-      </LoginContainer>
+          <StyledLoginSubtitle>
+            Ou entre com o seu e-mail e senha
+          </StyledLoginSubtitle>
+          <StyleLoginForm action="#">
+            <Input
+              type="email"
+              id="email"
+              label="Email"
+              placeholder="Digite o seu e-mail"
+            />
+            <Input
+              type="password"
+              id="senha"
+              label="Senha"
+              placeholder="Digite a sua senha"
+            />
+            <Button startIcon={<FiLogIn size={18} />}>Entrar</Button>
+          </StyleLoginForm>
+        </StyledLoginContent>
+      </StyledLoginContainer>
     </>
   );
 };
