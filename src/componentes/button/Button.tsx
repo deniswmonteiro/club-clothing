@@ -1,5 +1,8 @@
 import type { ButtonHTMLAttributes, FunctionComponent, ReactNode } from "react";
-import { ButtonContainer, IconContainer } from "./Button.styles";
+import {
+  StyledButtonContainer,
+  StyledButtonIconContainer,
+} from "./Button.styles";
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
@@ -12,10 +15,12 @@ const Button: FunctionComponent<IButtonProps> = ({
   ...rest
 }) => {
   return (
-    <ButtonContainer {...rest}>
-      {startIcon && <IconContainer>{startIcon}</IconContainer>}
+    <StyledButtonContainer {...rest}>
+      {startIcon && (
+        <StyledButtonIconContainer>{startIcon}</StyledButtonIconContainer>
+      )}
       {children}
-    </ButtonContainer>
+    </StyledButtonContainer>
   );
 };
 

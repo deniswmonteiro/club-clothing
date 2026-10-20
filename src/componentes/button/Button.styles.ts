@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Colors from "../../theme/theme.colors";
 
-export const ButtonContainer = styled.button`
+export const StyledButtonContainer = styled.button`
   width: 100%;
   background-color: ${Colors.background.dark};
   color: ${Colors.text.light};
@@ -10,20 +10,30 @@ export const ButtonContainer = styled.button`
   justify-content: center;
   gap: 8px;
   border-radius: 10px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   border: none;
   padding: 10px 16px;
   font-weight: 600;
+  cursor: pointer;
   transition: 0.3s ease-in-out;
 
   &:hover {
-    cursor: pointer;
     background-color: #555555;
     transition: 0.3s ease-in-out;
   }
+
+  &:disabled {
+    background-color: #aaaaaa;
+    cursor: not-allowed;
+    transition: 0.3s ease-in-out;
+
+    &.loading {
+      cursor: wait;
+    }
+  }
 `;
 
-export const IconContainer = styled.span`
+export const StyledButtonIconContainer = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
