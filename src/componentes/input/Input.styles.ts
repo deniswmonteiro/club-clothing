@@ -9,7 +9,8 @@ export const StyledInputContainer = styled.div`
   width: 100%;
   margin-bottom: 20px;
 
-  p:nth-child(1) {
+  label {
+    display: block;
     font-weight: 600;
     margin-bottom: 5px;
   }
@@ -26,9 +27,6 @@ export const StyledInput = styled.input<TInputContainerProps>`
   border-color: ${(props) => (props.hasError ? `${Colors.error}` : "transparent")};
   outline: none;
   transition: 0.3s ease-in-out;
-
-  & > input {
-  }
 
   &::placeholder {
     color: ${(props) =>

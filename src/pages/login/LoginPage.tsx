@@ -26,7 +26,7 @@ const LoginPage = () => {
             <Input
               type="email"
               id="email"
-              label="Email"
+              label="E-mail"
               placeholder="Digite o seu e-mail"
             />
             <Input
