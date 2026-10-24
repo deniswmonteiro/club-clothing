@@ -3,6 +3,7 @@ import Colors from "../../theme/theme.colors";
 
 export const StyledLoginContainer = styled.section`
   height: 100%;
+  padding: 60px 32px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,6 +34,6 @@ export const StyledLoginSubtitle = styled.p`
   margin-bottom: 20px;
 `;
 
-export const StyleLoginForm = styled.form`
+export const StyledLoginForm = styled.form`
   width: 100%;
 `;

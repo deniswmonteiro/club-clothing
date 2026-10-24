@@ -4,9 +4,9 @@ import Header from "../../componentes/header/Header";
 import {
   StyledLoginContainer,
   StyledLoginContent,
+  StyledLoginForm,
   StyledLoginHeadline,
   StyledLoginSubtitle,
-  StyleLoginForm,
 } from "./LoginPage.styles";
 import { FiLogIn } from "react-icons/fi";
 import Input from "../../componentes/input/Input";
@@ -40,7 +40,7 @@ const LoginPage = () => {
           <StyledLoginSubtitle>
             Ou entre com o seu e-mail e senha
           </StyledLoginSubtitle>
-          <StyleLoginForm onSubmit={onSubmit}>
+          <StyledLoginForm onSubmit={onSubmit}>
             <Input
               type="email"
               id="email"
@@ -69,7 +69,7 @@ const LoginPage = () => {
             <Button type="submit" startIcon={<FiLogIn size={18} />}>
               Entrar
             </Button>
-          </StyleLoginForm>
+          </StyledLoginForm>
         </StyledLoginContent>
       </StyledLoginContainer>
     </>
