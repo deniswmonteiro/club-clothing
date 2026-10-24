@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Colors from "../../theme/theme.colors";
 
 type TInputContainerProps = {
-  hasError?: boolean;
+  $hasError?: boolean;
 };
 
 export const StyledInputContainer = styled.div`
@@ -14,6 +14,13 @@ export const StyledInputContainer = styled.div`
     font-weight: 600;
     margin-bottom: 5px;
   }
+
+  span {
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 300;
+    color: ${Colors.error};
+  }
 `;
 
 export const StyledInput = styled.input<TInputContainerProps>`
@@ -24,18 +31,18 @@ export const StyledInput = styled.input<TInputContainerProps>`
   border-radius: 10px;
   color: ${Colors.text.dark};
   border: 2px solid;
-  border-color: ${(props) => (props.hasError ? `${Colors.error}` : "transparent")};
+  border-color: ${(props) => (props.$hasError ? `${Colors.error}` : "transparent")};
   outline: none;
   transition: 0.3s ease-in-out;
 
   &::placeholder {
     color: ${(props) =>
-      props.hasError ? Colors.error : Colors.input.placeholder};
+      props.$hasError ? Colors.error : Colors.input.placeholder};
   }
 
   &:focus {
     border-color: ${(props) =>
-      props.hasError ? "transparent" : `${Colors.input.placeholder}`};
+      props.$hasError ? `${Colors.error}` : `${Colors.input.placeholder}`};
     transition: 0.3s ease-in-out;
   }
 `;

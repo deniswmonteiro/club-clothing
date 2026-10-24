@@ -10,8 +10,26 @@ import {
 } from "./LoginPage.styles";
 import { FiLogIn } from "react-icons/fi";
 import Input from "../../componentes/input/Input";
+import { useForm } from "react-hook-form";
+
+interface IData {
+  email: string;
+  password: string;
+}
 
 const LoginPage = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IData>({
+    mode: "onTouched",
+  });
+
+  const onSubmit = handleSubmit((data) => {
+    console.log(data);
+  });
+
   return (
     <>
       <Header />
@@ -22,20 +40,35 @@ const LoginPage = () => {
           <StyledLoginSubtitle>
             Ou entre com o seu e-mail e senha
           </StyledLoginSubtitle>
-          <StyleLoginForm action="#">
+          <StyleLoginForm onSubmit={onSubmit}>
             <Input
               type="email"
               id="email"
               label="E-mail"
               placeholder="Digite o seu e-mail"
+              errorMessage={errors.email?.message}
+              {...register("email", {
+                required: "O E-mail é obrigatório.",
+                pattern: {
+                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                  message: "Insira um E-mail válido.",
+                },
+              })}
             />
+
             <Input
               type="password"
-              id="senha"
+              id="password"
               label="Senha"
               placeholder="Digite a sua senha"
+              errorMessage={errors.password?.message}
+              {...register("password", {
+                required: "A Senha é obrigatória.",
+              })}
             />
-            <Button startIcon={<FiLogIn size={18} />}>Entrar</Button>
+            <Button type="submit" startIcon={<FiLogIn size={18} />}>
+              Entrar
+            </Button>
           </StyleLoginForm>
         </StyledLoginContent>
       </StyledLoginContainer>

@@ -5,20 +5,29 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   id: string;
   type: string;
-  hasError?: boolean;
+  $hasError?: boolean;
+  errorMessage?: string;
 }
 
 const Input: FunctionComponent<IInputProps> = ({
   label,
   id,
   type,
-  hasError,
+  $hasError,
+  errorMessage,
   ...rest
 }) => {
   return (
     <StyledInputContainer>
       <label htmlFor={id}>{label}</label>
-      <StyledInput type={type} id={id} hasError={hasError} {...rest} />
+      <StyledInput
+        type={type}
+        id={id}
+        name={id}
+        $hasError={$hasError || !!errorMessage}
+        {...rest}
+      />
+      {errorMessage && <span>{errorMessage}</span>}
     </StyledInputContainer>
   );
 };
