@@ -1,7 +1,7 @@
 import React from "react";
 import type ICategory from "../../types/category.types";
 import { getDocs, collection } from "firebase/firestore";
-import { db } from "../../assets/config/firebase.config";
+import { db } from "../../config/firebase.config";
 import { categoryConverter } from "../../converters/firestore.converters";
 import CategoryItem from "../category-item/CategoryItem";
 import {

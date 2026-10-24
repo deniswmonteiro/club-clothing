@@ -9,9 +9,12 @@ import {
   StyledSignUpHeadline,
 } from "./SignupPage.styles";
 import { useForm } from "react-hook-form";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../../config/firebase.config";
+import { addDoc, collection } from "firebase/firestore";
 
 interface IData {
-  name: string;
+  firstName: string;
   lastName: string;
   email: string;
   password: string;
@@ -25,8 +28,23 @@ const SignupPage = () => {
     formState: { errors },
   } = useForm<IData>();
 
-  const onSubmit = handleSubmit((data) => {
-    console.log(data);
+  const onSubmit = handleSubmit(async (data) => {
+    try {
+      const userCredentials = await createUserWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      );
+
+      await addDoc(collection(db, "users"), {
+        id: userCredentials.user.uid,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: userCredentials.user.email,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   });
 
   return (
@@ -38,11 +56,11 @@ const SignupPage = () => {
           <StyledSignupForm onSubmit={onSubmit}>
             <Input
               type="text"
-              id="name"
+              id="firstName"
               label="Nome"
               placeholder="Digite o seu nome"
-              errorMessage={errors.name?.message}
-              {...register("name", {
+              errorMessage={errors.firstName?.message}
+              {...register("firstName", {
                 required: "O Nome é obrigatório.",
               })}
             />
