@@ -9,7 +9,11 @@ import {
   StyledSignUpHeadline,
 } from "./SignupPage.styles";
 import { useForm } from "react-hook-form";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  AuthErrorCodes,
+  createUserWithEmailAndPassword,
+  type AuthError,
+} from "firebase/auth";
 import { auth, db } from "../../config/firebase.config";
 import { addDoc, collection } from "firebase/firestore";
 
@@ -25,6 +29,7 @@ const SignupPage = () => {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm<IData>();
 
@@ -43,7 +48,13 @@ const SignupPage = () => {
         email: userCredentials.user.email,
       });
     } catch (error) {
-      console.log(error);
+      const err = error as AuthError;
+
+      if (err.code === AuthErrorCodes.EMAIL_EXISTS) {
+        return setError("email", {
+          message: "O E-mail já está sendo utilizado.",
+        });
+      }
     }
   });
 
@@ -96,6 +107,10 @@ const SignupPage = () => {
               errorMessage={errors.password?.message}
               {...register("password", {
                 required: "A Senha é obrigatória.",
+                minLength: {
+                  value: 6,
+                  message: "Mínimo de 6 caracteres.",
+                },
                 deps: ["passwordConfirmation"],
               })}
             />
@@ -107,6 +122,10 @@ const SignupPage = () => {
               errorMessage={errors.passwordConfirmation?.message}
               {...register("passwordConfirmation", {
                 required: "A Confirmação de Senha é obrigatória.",
+                minLength: {
+                  value: 6,
+                  message: "Mínimo de 6 caracteres.",
+                },
                 validate: (value, { password }) => {
                   return password === value || "As Senhas não coincidem.";
                 },
